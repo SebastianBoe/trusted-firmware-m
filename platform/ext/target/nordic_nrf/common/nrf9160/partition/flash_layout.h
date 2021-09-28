@@ -30,6 +30,7 @@
  * 0x000f_0000 Protected Storage Area (20 KB)
  * 0x000f_4000 Internal Trusted Storage Area (16 KB)
  * 0x000f_6000 OTP / NV counters  area (8 KB)
+ * 0x000f_7000 Unused (4 KB)
  * 0x000f_8000 Non-secure storage, used when built with NRF_NS_STORAGE=ON,
  *             otherwise unused (32 KB)
  *
@@ -41,6 +42,7 @@
  * 0x000f_0000 Protected Storage Area (16 KB)
  * 0x000f_4000 Internal Trusted Storage Area (8 KB)
  * 0x000f_6000 OTP / NV counters  area (8 KB)
+ * 0x000f_7000 Unused (4 KB)
  * 0x000f_8000 Non-secure storage, used when built with NRF_NS_STORAGE=ON,
  *             otherwise unused (32 KB)
  */
@@ -158,6 +160,11 @@
                                            FLASH_ITS_AREA_SIZE)
 #define FLASH_OTP_NV_COUNTERS_AREA_SIZE   (FLASH_AREA_IMAGE_SECTOR_SIZE * 2)
 #define FLASH_OTP_NV_COUNTERS_SECTOR_SIZE FLASH_AREA_IMAGE_SECTOR_SIZE
+
+/* Non-secure storage region */
+#define NRF_FLASH_NS_STORAGE_AREA_OFFSET    (FLASH_TOTAL_SIZE - \
+                                             NRF_FLASH_NS_STORAGE_AREA_SIZE)
+#define NRF_FLASH_NS_STORAGE_AREA_SIZE      (0x8000)   /* 32 KB */
 
 /* Non-secure storage region */
 #define NRF_FLASH_NS_STORAGE_AREA_OFFSET    (FLASH_TOTAL_SIZE - \
