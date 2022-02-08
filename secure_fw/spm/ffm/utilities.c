@@ -11,6 +11,16 @@
 
 void tfm_core_panic(void)
 {
+#ifdef TFM_HALT_ON_CORE_PANIC
+	/*
+	 * Halt instead of reboot to retain the backtrace that triggered
+	 * the fault and thereby make it easier to debug. Should not be
+	 * used in production.
+	 */
+ halt:
+	goto halt;
+#endif
+
     fih_delay();
 
     /*
