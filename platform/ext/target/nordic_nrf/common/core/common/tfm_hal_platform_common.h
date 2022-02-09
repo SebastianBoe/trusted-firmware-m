@@ -10,6 +10,4 @@
 
 #include "tfm_plat_defs.h"
 
-enum tfm_hal_status_t tfm_hal_platform_common_init(void);
-
 #endif /* __TFM_HAL_PLATFORM_COMMON_H__ */
