@@ -85,6 +85,13 @@ set(PLATFORM_DEFAULT_PROVISIONING       ON          CACHE BOOL      "Use default
 set(TFM_DUMMY_PROVISIONING              ON          CACHE BOOL      "Provision with dummy values. NOT to be used in production")
 set(PLATFORM_IS_FVP                     FALSE       CACHE BOOL      "Whether to enable FVP or FPGA build of the platform.")
 
+set(NULL_POINTER_EXCEPTION_DETECTION    FALSE       CACHE BOOL
+  "Enable null-pointer dereference detection for priviliged and unpriviliged secure reads and writes on supported platforms. \
+   Can be used to debug faults in the SPE. \
+   Note that null-pointer dereferences from the NSPE will trigger SecureFaults even without this option enabled. \
+   May require more MPU regions than are available depending on the configuration."
+  )
+
 set(PLATFORM_PSA_ADAC_SECURE_DEBUG      FALSE       CACHE BOOL      "Whether to use psa-adac secure debug.")
 set(PLATFORM_PSA_ADAC_SOURCE_PATH       "DOWNLOAD"  CACHE PATH      "Path to source dir of psa-adac.")
 set(PLATFORM_PSA_ADAC_VERSION           "427923cc0152578d536fb2065154d5d0dd874910" CACHE STRING "The version of psa-adac to use.")
