@@ -71,6 +71,7 @@ target_sources(platform_s
         spm_hal.c
         tfm_hal_isolation.c
         tfm_hal_platform_common.c
+		$<$<BOOL:True>:${CMAKE_CURRENT_SOURCE_DIR}/ext_api_req.c> # TODO
         ${CMAKE_SOURCE_DIR}/platform/ext/common/tfm_hal_nvic.c
         $<$<BOOL:${TFM_ITS_ENCRYPTED}>:${CMAKE_CURRENT_SOURCE_DIR}/tfm_hal_its_encryption.c>
     PUBLIC

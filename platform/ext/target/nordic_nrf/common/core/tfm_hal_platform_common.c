@@ -10,6 +10,7 @@
 #include "tfm_hal_platform.h"
 #include "tfm_plat_defs.h"
 #include "uart_stdout.h"
+#include "ext_api_req.h"
 
 extern const struct memory_region_limits memory_regions;
 enum tfm_hal_status_t tfm_hal_platform_common_init(void)
@@ -36,6 +37,8 @@ enum tfm_hal_status_t tfm_hal_platform_common_init(void)
     stdio_init();
 #endif
 
+	printf("Logging enabled\r\n");
+
     plat_err = nvic_interrupt_target_state_cfg();
     if (plat_err != TFM_PLAT_ERR_SUCCESS) {
         return TFM_HAL_ERROR_GENERIC;
@@ -45,6 +48,13 @@ enum tfm_hal_status_t tfm_hal_platform_common_init(void)
     if (plat_err != TFM_PLAT_ERR_SUCCESS) {
         return TFM_HAL_ERROR_GENERIC;
     }
+
+#if 1 // TODO
+	plat_err = nrf_ext_api_req();
+    if (plat_err != TFM_PLAT_ERR_SUCCESS) {
+        return TFM_HAL_ERROR_GENERIC;
+    }
+#endif
 
     return TFM_HAL_SUCCESS;
 }
